@@ -19,7 +19,9 @@
       "@services": ["src/services"],
       "@services/*": ["src/services/*"],
       "@lobby": ["src/services/LobbyService"],
-      "@lobby/*": ["src/services/LobbyService/*"]
+      "@lobby/*": ["src/services/LobbyService/*"],
+      "@config": ["src/config"],
+      "@config/*": ["src/config/*"]
     }
   },
 }

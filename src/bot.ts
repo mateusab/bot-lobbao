@@ -1,5 +1,5 @@
-import { LobbyService } from './services/LobbyService';
-import { RegisterLevel } from './services/RegisterLevel';
+import { LobbyService } from '@lobby/LobbyService';
+import { RegisterLevel } from '@services/RegisterLevel';
 import { Injectable } from "@nestjs/common";
 import { Client, Message } from "discord.js"
 
@@ -15,6 +15,7 @@ const lobbyService = new LobbyService()
             const commandBody = message.content.slice(prefix.length);
             const args = commandBody.split(' ');
             const command = args.shift().toLowerCase();
+            let lobbyName
             //console.log('commandBody', commandBody)
             //console.log('args', args)
             //console.log('command: ', command)
@@ -25,15 +26,18 @@ const lobbyService = new LobbyService()
                     break;
                 
                 case "create":
-                    await lobbyService.create(args[0], message)
+                    lobbyName = args.join(" ")
+                    await lobbyService.create(lobbyName, message)
                     break;
 
                 case "join":
-                    await lobbyService.join(args[0], message)
+                    lobbyName = args.join(" ")
+                    await lobbyService.join(lobbyName, message)
                     break;
                 
                 case "list":
-                    await lobbyService.list(args[0], message)
+                    lobbyName = args.join(" ")
+                    await lobbyService.list(lobbyName, message)
                     break;
             
                 default:

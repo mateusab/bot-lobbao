@@ -10,6 +10,16 @@
     "sourceMap": true,
     "outDir": "./dist",
     "baseUrl": "./",
-    "incremental": true
-  }
+    "incremental": true,
+    "paths": {
+      "@utils": ["src/utils"],
+      "@utils/*": ["src/utils/*"],
+      "@interfaces": ["src/interfaces"],
+      "@interfaces/*": ["src/interfaces/*"],
+      "@services": ["src/services"],
+      "@services/*": ["src/services/*"],
+      "@lobby": ["src/services/LobbyService"],
+      "@lobby/*": ["src/services/LobbyService/*"]
+    }
+  },
 }

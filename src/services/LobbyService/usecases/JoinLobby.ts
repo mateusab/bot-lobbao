@@ -14,24 +14,20 @@ export class JoinLobby {
             return
         }
 
-        if (lobby.count === 10) {
-            message.channel.send(BotMessages.lobbyFull)
+        if (lobby.count === 0) {
+            lobby.players = []
+            lobby.count++
+            lobby.players.push({ name: playerName, level: Number(message.member.roles.highest.name)})
+            message.channel.send(BotMessages.playerJoinnedLobby(lobbyName, playerName))
         } else {
-            if (lobby.count === 0) {
-                lobby.players = []
-                lobby.count++
-                lobby.players.push({ name: playerName, level: Number(message.member.roles.highest.name)})
-                message.channel.send(BotMessages.playerJoinnedLobby(lobbyName, playerName))
-            } else {
-                const alreadyInLobby = this.playerAlreadyInLobby(lobby, playerName)
+            const alreadyInLobby = this.playerAlreadyInLobby(lobby, playerName)
 
-                if (alreadyInLobby) {
-                    message.channel.send(BotMessages.playerAlreadyInLobby(lobbyName, playerName))
-                } else {
-                    lobby.count++
-                    lobby.players.push({ name: message.member.displayName, level: Number(message.member.roles.highest.name)})
-                    message.channel.send(BotMessages.playerJoinnedLobby(lobbyName, playerName))
-                }
+            if (alreadyInLobby) {
+                message.channel.send(BotMessages.playerAlreadyInLobby(lobbyName, playerName))
+            } else {
+                lobby.count++
+                lobby.players.push({ name: message.member.displayName, level: Number(message.member.roles.highest.name)})
+                message.channel.send(BotMessages.playerJoinnedLobby(lobbyName, playerName))
             }
         }
     }

@@ -14,11 +14,14 @@ export class ListLobby {
         } else {
             message.channel.send(BotMessages.listLobby(lobbyName))
             
-            lobby.players.forEach(player => {
-                message.channel.send(`${player.name} (${player.level})`)
-            })
+            const playersAtLobby: String[] = getLobbyPlayers(lobby)
+            message.channel.send(playersAtLobby)
         }
-
-
     }
+}
+
+function getLobbyPlayers(lobby: Lobby): String[] {
+    return lobby.players.map(player => {
+        return `${player.name} (${player.level})\n`;
+    });
 }

@@ -36,9 +36,13 @@ const lobbyService = new LobbyService()
                 case "leave":
                     await lobbyService.leave(lobbyName, message)       
                     break;
-                             
+
                 case "list":
                     await lobbyService.list(lobbyName, message)
+                    break;
+                
+                case "start":
+                    await lobbyService.start(lobbyName, message)
                     break;
             
                 default:

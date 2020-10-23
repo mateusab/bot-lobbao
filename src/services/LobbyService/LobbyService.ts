@@ -1,3 +1,4 @@
+import { StartLobby } from '@lobby/usecases/StartLobby';
 import { LeaveLobby } from '@lobby/usecases/LeaveLobby';
 import { ListLobby } from '@lobby/usecases/ListLobby';
 import { JoinLobby } from '@lobby/usecases/JoinLobby';
@@ -10,8 +11,9 @@ let lobbies: Lobby[] = [];
 
 const createLobby = new CreateLobby()
 const joinLobby = new JoinLobby()
-const listLobby = new ListLobby()
 const leaveLobby = new LeaveLobby()
+const listLobby = new ListLobby()
+const startLobby = new StartLobby()
 
 @Injectable()
 export class LobbyService {
@@ -29,5 +31,9 @@ export class LobbyService {
 
     list (lobbyName: string, message: Message) {
         listLobby.execute(lobbyName, message, lobbies)
+    }
+
+    start(lobbyName: string, message: Message) {
+        startLobby.execute(lobbyName, message)
     }
 }

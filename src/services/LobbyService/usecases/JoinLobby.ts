@@ -7,6 +7,7 @@ import { Message } from 'discord.js';
 export class JoinLobby {
     execute(lobbyName: string, message: Message, lobbies: Lobby[]) {
         const lobby = lobbies.find(lobby => lobby.name === lobbyName)
+        const playerName = message.member.displayName
 
         if (!lobby) {
             message.channel.send(BotMessages.lobbyDoesNotExists(lobbyName))
@@ -19,17 +20,17 @@ export class JoinLobby {
             if (lobby.count === 0) {
                 lobby.players = []
                 lobby.count++
-                lobby.players.push({ name: message.member.displayName, level: Number(message.member.roles.highest.name)})
-                message.channel.send(`**${message.member.displayName}** entrou na lobby **${lobbyName}**.`)
+                lobby.players.push({ name: playerName, level: Number(message.member.roles.highest.name)})
+                message.channel.send(BotMessages.playerJoinnedLobby(lobbyName, playerName))
             } else {
-                const alreadyInLobby = this.playerAlreadyInLobby(lobby, message.member.displayName)
+                const alreadyInLobby = this.playerAlreadyInLobby(lobby, playerName)
 
                 if (alreadyInLobby) {
-                    message.channel.send(`**${message.member.displayName}** já está na lobby **${lobbyName}**.`)
+                    message.channel.send(BotMessages.playerAlreadyInLobby(lobbyName, playerName))
                 } else {
                     lobby.count++
                     lobby.players.push({ name: message.member.displayName, level: Number(message.member.roles.highest.name)})
-                    message.channel.send(`**${message.member.displayName}** entrou na **${lobbyName}**.`)
+                    message.channel.send(BotMessages.playerJoinnedLobby(lobbyName, playerName))
                 }
             }
         }

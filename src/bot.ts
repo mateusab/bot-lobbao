@@ -15,7 +15,7 @@ const lobbyService = new LobbyService()
             const commandBody = message.content.slice(prefix.length);
             const args = commandBody.split(' ');
             const command = args.shift().toLowerCase();
-            let lobbyName
+            let lobbyName = args.join(" ")
             //console.log('commandBody', commandBody)
             //console.log('args', args)
             //console.log('command: ', command)
@@ -26,17 +26,18 @@ const lobbyService = new LobbyService()
                     break;
                 
                 case "create":
-                    lobbyName = args.join(" ")
                     await lobbyService.create(lobbyName, message)
                     break;
 
                 case "join":
-                    lobbyName = args.join(" ")
                     await lobbyService.join(lobbyName, message)
                     break;
-                
+
+                case "leave":
+                    await lobbyService.leave(lobbyName, message)       
+                    break;
+                             
                 case "list":
-                    lobbyName = args.join(" ")
                     await lobbyService.list(lobbyName, message)
                     break;
             

@@ -11,10 +11,13 @@ export class ListLobby {
         if (!lobby) {
             message.channel.send(BotMessages.lobbyDoesNotExists(lobbyName))
         } else {
-            message.channel.send(BotMessages.listLobby(lobbyName))
-            
-            const playersAtLobby: String[] = getLobbyPlayers(lobby)
-            message.channel.send(playersAtLobby)
+            if(lobby.count === 0) {
+                message.channel.send(BotMessages.lobbyEmpty(lobbyName))
+            } else {                
+                message.channel.send(BotMessages.listLobby(lobbyName))
+                const playersAtLobby: String[] = getLobbyPlayers(lobby)
+                message.channel.send(playersAtLobby)
+            }
         }
     }
 }

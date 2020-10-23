@@ -34,6 +34,6 @@ export class LobbyService {
     }
 
     start(lobbyName: string, message: Message) {
-        startLobby.execute(lobbyName, message)
+        startLobby.execute(lobbyName, message, lobbies)
     }
 }

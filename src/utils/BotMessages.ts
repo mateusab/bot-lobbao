@@ -1,8 +1,9 @@
 export const BotMessages = Object.freeze({
-    listLobby: (lobbyName: string) => `Lobby: ${lobbyName}`,
+    listLobby: (lobbyName: string) => `Lobby: **${lobbyName}**`,
     lobbyAlreadyExists: (lobbyName: string) => `A lobby **${lobbyName}** já existe!\nDigite **!join ${lobbyName}** para entrar.`,
     lobbyCreated: (lobbyName: string) => `Lobby **${lobbyName}** criada com sucesso! Digite **!join ${lobbyName}** para entrar.`,
     lobbyDoesNotExists: (lobbyName: string) => `A lobby **${lobbyName}** não existe! Digite **!create ${lobbyName}** para criar.`,
+    lobbyEmpty: (lobbyName: string) => `A lobby **${lobbyName}** está vazia.`,
     playerAlreadyInLobby: (lobbyName: string, playerName: string) => `**${playerName}** já está na lobby **${lobbyName}**.`,
     playerIsNotPartOfLobby: (lobbyName: string, playerName: string) => `${playerName} não faz parte da lobby **${lobbyName}**.`,
     playerJoinnedLobby: (lobbyName: string, playerName: string) => `**${playerName}** entrou na lobby **${lobbyName}**.`,

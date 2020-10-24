@@ -3,6 +3,8 @@ import { RegisterLevel } from '@services/RegisterLevel';
 import { Injectable } from "@nestjs/common";
 import { Client, Message } from "discord.js"
 
+require('dotenv').config()
+
 const registerLevel = new RegisterLevel()
 const lobbyService = new LobbyService()
 
@@ -56,8 +58,8 @@ const lobbyService = new LobbyService()
                 default:
                     break;
             }
-
           });
-         return client.login("NzY4NjU5Mjk4Nzg3OTE3ODQ2.X5DrwQ.mOFmBT9DTm5Qf7C8rQPvLuw6IBc")
+
+         return client.login(process.env.TOKEN)
      }
  }

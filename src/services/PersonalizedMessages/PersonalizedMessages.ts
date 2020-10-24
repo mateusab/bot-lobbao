@@ -142,6 +142,11 @@ export class PersonalizedMessages {
                 message.channel.send(`Olha o kin aí minha gente!`)
                 break;   
 
+            // gersin
+            case '6012':
+                message.channel.send(`Gersin na área, meus amigos.`)
+                break;   
+
             default:
                 let randomMessages = [
                     `Olha olha quem chegou, seja muito bem-vindo!`,

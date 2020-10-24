@@ -1,3 +1,4 @@
+import { DeleteLobby } from '@lobby/usecases/DeleteLobby';
 import { ClearLobby } from '@lobby/usecases/ClearLobby';
 import { StartLobby } from '@lobby/usecases/StartLobby';
 import { LeaveLobby } from '@lobby/usecases/LeaveLobby';
@@ -16,6 +17,7 @@ const leaveLobby = new LeaveLobby()
 const listLobby = new ListLobby()
 const startLobby = new StartLobby()
 const clearLobby = new ClearLobby()
+const deleteLobby = new DeleteLobby()
 
 @Injectable()
 export class LobbyService {
@@ -41,5 +43,9 @@ export class LobbyService {
 
     clear(lobbyName: string, message: Message) {
         clearLobby.execute(lobbyName, message, lobbies)
+    }
+
+    delete(lobbyName: string, message: Message) {
+        deleteLobby.execute(lobbyName, message, lobbies)
     }
 }

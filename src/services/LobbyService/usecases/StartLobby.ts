@@ -79,7 +79,7 @@ function createTeams(numberOfTeams: number, sortedLobby: Player[], teams: Team[]
     }
 }
 
-function removePlayersFromLobby(playersToBeRemoved: number, numberOfPlayers: number, message: Message, sortedLobby: import("/home/mateus/bot-lobbao/src/interfaces/PlayerInterface").Player[], lobby: Lobby) {
+function removePlayersFromLobby(playersToBeRemoved: number, numberOfPlayers: number, message: Message, sortedLobby: Player[], lobby: Lobby) {
     for (var i = 0; i <= playersToBeRemoved - 1; i++) {
         const randomIndex = faker.random.number({ 'min': 0, 'max': numberOfPlayers - 1 });
         message.channel.send(`${sortedLobby[randomIndex].name} foi removido da lobby`);

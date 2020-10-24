@@ -1,7 +1,10 @@
+import { PersonalizedMessages } from '@services/PersonalizedMessages/PersonalizedMessages';
 import { BotMessages } from '@utils/BotMessages';
 import { Lobby } from '@interfaces/LobbyInterface';
 import { Injectable } from '@nestjs/common';
 import { Message } from 'discord.js';
+
+const personalizedMessages = new PersonalizedMessages()
 
 @Injectable()
 export class JoinLobby {
@@ -19,6 +22,7 @@ export class JoinLobby {
             lobby.count++
             lobby.players.push({ name: playerName, level: Number(message.member.roles.highest.name)})
             message.channel.send(BotMessages.firstPlayerJoinnedLobby(lobbyName, playerName))
+            personalizedMessages.execute(message)
         } else {
             const alreadyInLobby = this.playerAlreadyInLobby(lobby, playerName)
 

@@ -12,6 +12,13 @@ export class JoinLobby {
         const lobby = lobbies.find(lobby => lobby.name === lobbyName)
         const playerName = message.member.displayName
 
+        const haveLevel = playerCanPlay(message)
+
+        if (!haveLevel) {
+            message.channel.send(`Apenas jogadores com lvl podem jogar!`)
+            return
+        }
+
         if (!lobby) {
             message.channel.send(BotMessages.lobbyDoesNotExists(lobbyName))
             return
@@ -39,4 +46,15 @@ export class JoinLobby {
     playerAlreadyInLobby(lobby: Lobby, playerName: string) {
         return lobby.players.some(player => player.name === playerName)
     }
+}
+
+function playerCanPlay(message: Message) {
+    const levels = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20']
+    let booleans = []
+    message.member.roles.cache.forEach(role => {
+        const roleIsLevel = levels.includes(role.name)
+        booleans.push(roleIsLevel)
+    })
+
+    return booleans.some(boolean => boolean === true)
 }

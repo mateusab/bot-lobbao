@@ -10,7 +10,7 @@ import * as faker from 'faker';
 export class StartLobby {
     execute(lobbyName: string, message: Message, lobbies: Lobby[]) {
         const lobby = lobbies.find(lobby => lobby.name === lobbyName)
-
+        
         if (!lobby) {
             message.channel.send(BotMessages.lobbyDoesNotExists(lobbyName))
         } else {

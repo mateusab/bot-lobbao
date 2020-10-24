@@ -18,7 +18,7 @@ export class JoinLobby {
             lobby.players = []
             lobby.count++
             lobby.players.push({ name: playerName, level: Number(message.member.roles.highest.name)})
-            message.channel.send(BotMessages.playerJoinnedLobby(lobbyName, playerName))
+            message.channel.send(BotMessages.firstPlayerJoinnedLobby(lobbyName, playerName))
         } else {
             const alreadyInLobby = this.playerAlreadyInLobby(lobby, playerName)
 
@@ -27,7 +27,7 @@ export class JoinLobby {
             } else {
                 lobby.count++
                 lobby.players.push({ name: message.member.displayName, level: Number(message.member.roles.highest.name)})
-                message.channel.send(BotMessages.playerJoinnedLobby(lobbyName, playerName))
+                message.channel.send(BotMessages.playerJoinnedLobby(lobbyName, playerName, lobby.count))
             }
         }
     }

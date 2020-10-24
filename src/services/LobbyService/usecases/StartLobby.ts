@@ -9,6 +9,11 @@ import * as faker from 'faker';
 @Injectable()
 export class StartLobby {
     execute(lobbyName: string, message: Message, lobbies: Lobby[]) {
+        if (lobbyName === '') {
+            message.channel.send(BotMessages.startLobbyDefaultMessage)
+            return
+        }
+
         const lobby = lobbies.find(lobby => lobby.name === lobbyName)
         
         if (!lobby) {

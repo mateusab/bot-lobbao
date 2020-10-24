@@ -9,6 +9,11 @@ const personalizedMessages = new PersonalizedMessages()
 @Injectable()
 export class JoinLobby {
     execute(lobbyName: string, message: Message, lobbies: Lobby[]) {
+        if (lobbyName === '') {
+            message.channel.send(BotMessages.joinLobbyDefaultMessage)
+            return
+        }
+
         const lobby = lobbies.find(lobby => lobby.name === lobbyName)
         const playerName = message.member.displayName
 

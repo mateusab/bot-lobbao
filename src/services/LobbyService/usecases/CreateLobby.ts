@@ -6,6 +6,11 @@ import { Injectable } from "@nestjs/common";
 @Injectable()
 export class CreateLobby {
     execute (lobbyName: string, message: Message, lobbies: Lobby[]) {
+        if (lobbyName === '') {
+            message.channel.send(BotMessages.createLobbyDefaultMessage)
+            return
+        }
+
         const lobbyAlreadyExists = lobbies.find(lobby => lobby.name === lobbyName)
         
         if (lobbyAlreadyExists) {

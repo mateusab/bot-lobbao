@@ -1,5 +1,10 @@
 export const BotMessages = Object.freeze({
+    clearLobbyDefaultMessage: `Digite **!clear nome da lobby** para limpar os jogadores uma lobby.`,
+    createLobbyDefaultMessage: `Digite **!create nome da lobby** para criar uma lobby`,
+    deleteLobbyDefaultMessage: `Digite **!delete nome da lobby** para deletar uma lobby.`,
     firstPlayerJoinnedLobby: (lobbyName: string, playerName: string) => `:white_check_mark: **${playerName}** foi o primeiro a entrar na lobby **${lobbyName}**.`,
+    joinLobbyDefaultMessage: `Digite **!join nome da lobby** para entrar em uma lobby`,
+    leaveLobbyDefaultMessage: `Digite **!leave nome da lobby** para sair de uma lobby`,
     listLobby: (lobbyName: string, playersCount: number) => `Lobby: **${lobbyName}** - ${playersCount} jogadores`,
     listTeam: (name: string, levelAvg: number) => `**${name}** - Média: ${levelAvg} :zap:`,
     lobbyAlreadyExists: (lobbyName: string) => `:x: A lobby **${lobbyName}** já existe!\nDigite **!join ${lobbyName}** para entrar.`,
@@ -16,5 +21,6 @@ export const BotMessages = Object.freeze({
     playerIsNotPartOfLobby: (lobbyName: string, playerName: string) => `${playerName} não faz parte da lobby **${lobbyName}**.`,
     playerJoinnedLobby: (lobbyName: string, playerName: string, playersCount: number) => `**${playerName}** entrou na lobby **${lobbyName}** (${playersCount} jogadores).`,
     playerLeftLobby: (lobbyName: string, playerName: string) => `:white_check_mark: ${playerName} saiu da lobby **${lobbyName}**.`,
+    startLobbyDefaultMessage: `Digite **!start nome da lobby** para começar uma lobby.`,
     typeListToSeeSpecificLobby: `Digite **!list nome da lobby** pra ver uma específica. :stuck_out_tongue_winking_eye:`
 })

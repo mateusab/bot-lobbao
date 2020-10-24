@@ -44,6 +44,7 @@ export class JoinLobby {
                 lobby.count++
                 lobby.players.push({ name: message.member.displayName, level: Number(message.member.roles.highest.name)})
                 message.channel.send(BotMessages.playerJoinnedLobby(lobbyName, playerName, lobby.count))
+                personalizedMessages.execute(message)
             }
         }
     }

@@ -1,3 +1,4 @@
+import { ShowCommands } from './usecases/commands/ShowCommands';
 import { LobbyService } from '@lobby/LobbyService';
 import { RegisterLevel } from '@services/RegisterLevel';
 import { Injectable } from "@nestjs/common";
@@ -7,6 +8,7 @@ require('dotenv').config()
 
 const registerLevel = new RegisterLevel()
 const lobbyService = new LobbyService()
+const showCommands = new ShowCommands()
 
  @Injectable()
  export class Bot {
@@ -53,6 +55,10 @@ const lobbyService = new LobbyService()
 
                 case "delete":
                     await lobbyService.delete(lobbyName, message)
+                    break;
+
+                case "commands":
+                    showCommands.execute(message)
                     break;
             
                 default:

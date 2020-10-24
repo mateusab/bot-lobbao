@@ -44,6 +44,9 @@ const lobbyService = new LobbyService()
                 case "start":
                     await lobbyService.start(lobbyName, message)
                     break;
+                case "clear":
+                    await lobbyService.clear(lobbyName, message)
+                    break;
             
                 default:
                     break;

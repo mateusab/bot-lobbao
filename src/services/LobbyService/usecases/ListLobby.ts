@@ -14,7 +14,7 @@ export class ListLobby {
             if(lobby.count === 0) {
                 message.channel.send(BotMessages.lobbyEmpty(lobbyName))
             } else {                
-                message.channel.send(BotMessages.listLobby(lobbyName))
+                message.channel.send(BotMessages.listLobby(lobbyName, lobby.count))
                 const playersAtLobby: String[] = getLobbyPlayers(lobby)
                 message.channel.send(playersAtLobby)
             }
@@ -24,6 +24,6 @@ export class ListLobby {
 
 function getLobbyPlayers(lobby: Lobby): String[] {
     return lobby.players.map(player => {
-        return `${player.name} (${player.level})\n`;
+        return `${player.name} (${player.level})`;
     });
 }

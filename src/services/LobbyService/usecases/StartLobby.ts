@@ -14,8 +14,7 @@ export class StartLobby {
         if (!lobby) {
             message.channel.send(BotMessages.lobbyDoesNotExists(lobbyName))
         } else {
-            createMockLobby(lobby);
-            const sortedLobby = lobby.players.sort((a, b) => b.level - a.level);
+            //createMockLobby(lobby);
             const numberOfPlayers = lobby.count
             const numberOfTeams = Math.floor(numberOfPlayers / 5)
             const playersToBeRemoved = numberOfPlayers % 5
@@ -23,6 +22,7 @@ export class StartLobby {
             if (numberOfTeams < 1) {
                 message.channel.send(BotMessages.mustHaveAtLeastFivePlayersToStartLobby(lobbyName, lobby.count))
             } else {
+                const sortedLobby = lobby.players.sort((a, b) => b.level - a.level);
                 logLobbyStart(numberOfTeams, numberOfPlayers, playersToBeRemoved);
                 
                 if (playersToBeRemoved > 0) {

@@ -1,4 +1,4 @@
-import { BotMessages } from './../../../utils/BotMessages';
+import { BotMessages } from '@utils/BotMessages';
 import { Lobby } from '@interfaces/LobbyInterface';
 import { Message } from 'discord.js';
 import { Injectable } from "@nestjs/common";
@@ -19,7 +19,7 @@ export class LeaveLobby {
                 message.channel.send(BotMessages.playerIsNotPartOfLobby(lobbyName, playerName))
             } else {
                 lobby.players.splice(playerIndex, 1)
-                lobby.count -= lobby.count
+                lobby.count -= 1
 
                 message.channel.send(BotMessages.playerLeftLobby(lobbyName, playerName))
             }

@@ -147,6 +147,11 @@ export class PersonalizedMessages {
                 message.channel.send(`Gersin na área, meus amigos.`)
                 break;   
 
+            // ecko
+            case '2377':
+                message.channel.send(`ECKURUU! Jogador completo. Rápido na AWP, certeiro, bonito... Enfim!`)
+                break;   
+
             default:
                 let randomMessages = [
                     `Olha olha quem chegou, seja muito bem-vindo!`,

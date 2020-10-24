@@ -1,4 +1,8 @@
 {
+  "engines": {
+    "node": "10.x",
+    "npm": "5.6.0"
+  },
   "name": "bot-lobbao",
   "version": "0.0.1",
   "description": "",

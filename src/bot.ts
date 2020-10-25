@@ -1,4 +1,4 @@
-import { ShowCommands } from './usecases/commands/ShowCommands';
+import { ShowCommands } from './usecases/ShowCommands';
 import { LobbyService } from '@lobby/LobbyService';
 import { RegisterLevel } from '@services/RegisterLevel';
 import { Injectable } from "@nestjs/common";

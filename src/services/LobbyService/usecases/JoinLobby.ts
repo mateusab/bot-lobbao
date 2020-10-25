@@ -1,4 +1,4 @@
-import { PersonalizedMessages } from '@services/PersonalizedMessages/PersonalizedMessages';
+import { PersonalizedMessages } from 'src/usecases/PersonalizedMessages';
 import { BotMessages } from '@utils/BotMessages';
 import { Lobby } from '@interfaces/LobbyInterface';
 import { Injectable } from '@nestjs/common';

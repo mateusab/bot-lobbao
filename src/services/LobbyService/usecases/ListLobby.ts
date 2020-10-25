@@ -42,7 +42,7 @@ function showOpenedLobbies(lobbies: Lobby[], message: Message) {
 
 function getOpenLobbies(lobbies: Lobby[]): String[] {
     return lobbies.map(lobby => {
-        return `**${lobby.name}** - ${lobby.count} jogadores`;
+        return lobby.count > 1 ? `**${lobby.name}** - ${lobby.count} jogadores` : `**${lobby.name}** - ${lobby.count} jogador`;
     });
 }
 

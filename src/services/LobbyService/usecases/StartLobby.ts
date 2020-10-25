@@ -43,7 +43,10 @@ export class StartLobby {
 }
 
 function listTeams(teams: Team[], message: Message) {
+    teams = teams.sort((a, b) => a.name !== b.name ? a.name < b.name ? -1 : 1 : 0);
+
     teams.forEach(team => {
+        team.players.sort((a, b) => b.level - a.level)
         message.channel.send(BotMessages.listTeam(team.name, team.levelAverage));
         const teamPlayers: String[] = getTeamPlayers(team.players);
         message.channel.send(teamPlayers);
@@ -68,7 +71,7 @@ function createTeams(numberOfTeams: number, sortedLobby: Player[], teams: Team[]
     let temp = sortedLobby
     console.log('lobby antes:', temp)
     //distribui os cabeças
-    for (var i = 0; i <= numberOfTeams - 1; i++) {
+    for (var i = 0; i < numberOfTeams; i++) {
         teams[i].players.push({ name: temp[0].name, level: temp[0].level})
         teams[i].levelAverage = temp[i].level
         temp.splice(0, 1)
@@ -83,7 +86,7 @@ function createTeams(numberOfTeams: number, sortedLobby: Player[], teams: Team[]
     for (var j = 0; j < 4; j++) {
         teams = teams.sort((a, b) => b.levelAverage - a.levelAverage);
 
-        for(var i = 0; i <= numberOfTeams - 1; i++) {
+        for(var i = 0; i < numberOfTeams; i++) {
             teams[i].players.push({ name: temp[0].name, level: temp[0].level})
             teams[i].levelAverage += temp[0].level
             temp.splice(0, 1)
@@ -92,12 +95,16 @@ function createTeams(numberOfTeams: number, sortedLobby: Player[], teams: Team[]
 
     // recalcula a média de cada time
     for (var i = 0; i < teams.length; i++) {
-        teams[i].levelAverage = teams[i].levelAverage / 5
+        const teamTotalLevel = teams[i].players.reduce((acc, cur) => {
+            return acc + cur.level 
+        }, 0)
+
+        teams[i].levelAverage = teamTotalLevel / 5
     }
 }
 
 function initializeTeams(numberOfTeams: number, teams: Team[]) {
-    for (var i = 0; i <= numberOfTeams - 1; i++) {
+    for (var i = 0; i < numberOfTeams; i++) {
         const players: Player[] = [];
         const team: Team = { players, name: `Time ${i + 1}`, levelAverage: 0 };
         teams.push(team);
@@ -115,7 +122,7 @@ function removePlayersFromLobby(playersToBeRemoved: number, numberOfPlayers: num
 
 function createMockLobby(lobby: Lobby) {
     lobby.players = []
-    lobby.count = 14
+    lobby.count = 25
     lobby.players.push({ name: 'xips', level: 20 });
     lobby.players.push({ name: 'viol', level: 20 });
     lobby.players.push({ name: 'miley', level: 8 });
@@ -126,16 +133,20 @@ function createMockLobby(lobby: Lobby) {
     lobby.players.push({ name: 'barreto', level: 12 });
     lobby.players.push({ name: 'Rubão', level: 2 });
     lobby.players.push({ name: 'sAvilek', level: 8 });
-//    lobby.players.push({ name: 'Xilanta', level: 8 });
+    lobby.players.push({ name: 'Xilanta', level: 8 });
     lobby.players.push({ name: 'kin', level: 12 });
     lobby.players.push({ name: 'mlopes', level: 3 });
     lobby.players.push({ name: 'VyK7oR', level: 12 });
     lobby.players.push({ name: 'stots', level: 10 });
-//    lobby.players.push({ name: 'lzwan', level: 4 });
-//    lobby.players.push({ name: 'Matob', level: 14 });
-//    lobby.players.push({ name: 'Alê', level: 5 });
-//    lobby.players.push({ name: 'kiq', level: 15 });
-//    lobby.players.push({ name: 'mestre', level: 7 });
-//    lobby.players.push({ name: 'muan', level: 15 });
-//    lobby.players.push({ name: 'Godinez', level: 8 });
+    lobby.players.push({ name: 'lzwan', level: 4 });
+    lobby.players.push({ name: 'Matob', level: 14 });
+    lobby.players.push({ name: 'Alê', level: 5 });
+    lobby.players.push({ name: 'kiq', level: 15 });
+    lobby.players.push({ name: 'mestre', level: 7 });
+    lobby.players.push({ name: 'muan', level: 15 });
+    lobby.players.push({ name: 'Godinez', level: 8 });
+    lobby.players.push({ name: 'Cisco', level: 12 });
+    lobby.players.push({ name: 'joX', level: 16 });
+    lobby.players.push({ name: 'Juzi', level: 20 });
+    lobby.players.push({ name: 'Eihara', level: 20 });
 }

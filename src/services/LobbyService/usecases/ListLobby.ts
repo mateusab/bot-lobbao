@@ -16,8 +16,12 @@ export class ListLobby {
             } else {
                 if(lobby.count === 0) {
                     message.channel.send(BotMessages.lobbyEmpty(lobbyName))
-                } else {                
-                    message.channel.send(BotMessages.listLobby(lobbyName, lobby.count))
+                } else {
+                    if (lobby.count === 1) {
+                        message.channel.send(BotMessages.listLobbyWithOnePlayer(lobbyName, lobby.count))
+                    } else {
+                        message.channel.send(BotMessages.listLobby(lobbyName, lobby.count))
+                    }      
                     const playersAtLobby: String[] = getLobbyPlayers(lobby)
                     message.channel.send(playersAtLobby)
                 }

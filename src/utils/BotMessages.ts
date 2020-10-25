@@ -6,6 +6,7 @@ export const BotMessages = Object.freeze({
     joinLobbyDefaultMessage: `Digite **!join nome da lobby** para entrar em uma lobby`,
     leaveLobbyDefaultMessage: `Digite **!leave nome da lobby** para sair de uma lobby`,
     listLobby: (lobbyName: string, playersCount: number) => `Lobby: **${lobbyName}** - ${playersCount} jogadores`,
+    listLobbyWithOnePlayer: (lobbyName: string, playersCount: number) => `Lobby: **${lobbyName}** - ${playersCount} jogador`,
     listTeam: (name: string, levelAvg: number) => `**${name}** - Média: ${levelAvg} :zap:`,
     lobbyAlreadyExists: (lobbyName: string) => `:x: A lobby **${lobbyName}** já existe!\nDigite **!join ${lobbyName}** para entrar.`,
     lobbyCleaned: (lobbyName: string) => `:white_check_mark: **${lobbyName}** liberada com sucesso.\nObs: ela continua criada.`,

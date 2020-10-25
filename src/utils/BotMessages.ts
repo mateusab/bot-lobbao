@@ -16,7 +16,7 @@ export const BotMessages = Object.freeze({
     lobbyEmpty: (lobbyName: string) => `A lobby **${lobbyName}** está vazia. :frowning:`,
     mustHaveAtLeastFivePlayersToStartLobby: (lobbyName: string, playersCount: number) => `:x: O número de jogadores mínimo para começar uma lobby é 5.\nA lobby **${lobbyName}** tem ${playersCount}. Digite !list *nome da lobby* para ver os jogadores`,
     noLobbiesOpened: `Não existe nenhuma lobby aberta. :frowning:\nDigite **!create nome da lobby** para criar uma.`,
-    onlyPlayersWithLevelCanJoinLobbies: `Apenas jogadores com level podem jogar! :frowning2:\nExemplo para atribuir seu level: digite !level 15`,
+    onlyPlayersWithLevelCanJoinLobbies: (playerId: string) => `<@${playerId}> apenas jogadores com level podem jogar! :frowning2:\nExemplo para atribuir seu level: digite !level 15`,
     openedLobbies: `:face_with_monocle: As lobbies abertas são:`,
     playerAlreadyInLobby: (lobbyName: string, playerName: string) => `:x: **${playerName}** já está na lobby **${lobbyName}**.`,
     playerIsNotPartOfLobby: (lobbyName: string, playerName: string) => `${playerName} não faz parte da lobby **${lobbyName}**.`,

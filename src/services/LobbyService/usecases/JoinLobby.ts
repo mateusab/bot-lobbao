@@ -20,7 +20,7 @@ export class JoinLobby {
         const haveLevel = playerCanPlay(message)
 
         if (!haveLevel) {
-            message.channel.send(BotMessages.onlyPlayersWithLevelCanJoinLobbies)
+            message.channel.send(BotMessages.onlyPlayersWithLevelCanJoinLobbies(message.author.id))
             return
         }
 

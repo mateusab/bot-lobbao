@@ -19,7 +19,7 @@ export class StartLobby {
         if (!lobby) {
             message.channel.send(BotMessages.lobbyDoesNotExists(lobbyName))
         } else {
-            //createMockLobby(lobby);
+            createMockLobby(lobby);
             const numberOfPlayers = lobby.count
             const numberOfTeams = Math.floor(numberOfPlayers / 5)
             const playersToBeRemoved = numberOfPlayers % 5
@@ -37,6 +37,31 @@ export class StartLobby {
                 let teams: Team[] = []
                 createTeams(numberOfTeams, sortedLobby, teams);
                 listTeams(teams, message);
+                
+                let tempTeams: Team[] = teams
+
+                if (numberOfTeams > 2) {
+                    message.channel.send(`Sugestão de confrontos :gc:`)
+                    tempTeams = tempTeams.sort((a, b) => a.levelAverage - b.levelAverage)
+                    if (numberOfTeams % 2 === 0) {
+                        for (var i = 0; i < (numberOfTeams/2); i++) {
+                            const teamA = tempTeams[0]
+                            const teamB = tempTeams[1]
+                            tempTeams.splice(0, 1)
+                            tempTeams.splice(0, 1)
+                            message.channel.send(`**${teamA.name}** (**${teamA.players[0].name}**) :vs: **${teamB.name}** (**${teamB.players[0].name}**)`)
+                        }
+                    } else {
+                        for (var i = 0; i < (Math.floor(numberOfTeams/2)); i++) {
+                            const teamA = tempTeams[0]
+                            const teamB = tempTeams[1]
+                            tempTeams.splice(0, 1)
+                            tempTeams.splice(0, 1)
+                            message.channel.send(`**${teamA.name}** (**${teamA.players[0].name}**) :vs: **${teamB.name}** (**${teamB.players[0].name}**)`)
+                        }
+                        message.channel.send(`**${tempTeams[0].name}** (**${tempTeams[0].players[0].name}**) sobrou!`)     
+                    }
+                }
             }
         }
     }
@@ -122,31 +147,31 @@ function removePlayersFromLobby(playersToBeRemoved: number, numberOfPlayers: num
 
 function createMockLobby(lobby: Lobby) {
     lobby.players = []
-    lobby.count = 25
-    lobby.players.push({ name: 'xips', level: 20 });
-    lobby.players.push({ name: 'viol', level: 20 });
+    lobby.count = 6
     lobby.players.push({ name: 'miley', level: 8 });
     lobby.players.push({ name: 'BigJhoW', level: 7 });
     lobby.players.push({ name: 'coeLho', level: 0 });
     lobby.players.push({ name: 'pejota', level: 7 });
+    lobby.players.push({ name: 'xips', level: 20 });
     lobby.players.push({ name: 'Mateusser', level: 5 });
-    lobby.players.push({ name: 'barreto', level: 12 });
-    lobby.players.push({ name: 'Rubão', level: 2 });
-    lobby.players.push({ name: 'sAvilek', level: 8 });
-    lobby.players.push({ name: 'Xilanta', level: 8 });
-    lobby.players.push({ name: 'kin', level: 12 });
-    lobby.players.push({ name: 'mlopes', level: 3 });
-    lobby.players.push({ name: 'VyK7oR', level: 12 });
-    lobby.players.push({ name: 'stots', level: 10 });
-    lobby.players.push({ name: 'lzwan', level: 4 });
-    lobby.players.push({ name: 'Matob', level: 14 });
-    lobby.players.push({ name: 'Alê', level: 5 });
-    lobby.players.push({ name: 'kiq', level: 15 });
-    lobby.players.push({ name: 'mestre', level: 7 });
-    lobby.players.push({ name: 'muan', level: 15 });
-    lobby.players.push({ name: 'Godinez', level: 8 });
-    lobby.players.push({ name: 'Cisco', level: 12 });
-    lobby.players.push({ name: 'joX', level: 16 });
-    lobby.players.push({ name: 'Juzi', level: 20 });
-    lobby.players.push({ name: 'Eihara', level: 20 });
+//    lobby.players.push({ name: 'barreto', level: 12 });
+//    lobby.players.push({ name: 'viol', level: 20 });
+//    lobby.players.push({ name: 'Rubão', level: 2 });
+//    lobby.players.push({ name: 'sAvilek', level: 8 });
+//    lobby.players.push({ name: 'Xilanta', level: 8 });
+//    lobby.players.push({ name: 'kin', level: 12 });
+//    lobby.players.push({ name: 'mlopes', level: 3 });
+//    lobby.players.push({ name: 'VyK7oR', level: 12 });
+//    lobby.players.push({ name: 'stots', level: 10 });
+//    lobby.players.push({ name: 'lzwan', level: 4 });
+//    lobby.players.push({ name: 'Matob', level: 14 });
+//    lobby.players.push({ name: 'Alê', level: 5 });
+//    lobby.players.push({ name: 'kiq', level: 15 });
+//    lobby.players.push({ name: 'mestre', level: 7 });
+//    lobby.players.push({ name: 'muan', level: 15 });
+//    lobby.players.push({ name: 'Godinez', level: 8 });
+//    lobby.players.push({ name: 'Cisco', level: 12 });
+//    lobby.players.push({ name: 'joX', level: 16 });
+//    lobby.players.push({ name: 'Juzi', level: 20 });
+//    lobby.players.push({ name: 'Eihara', level: 20 });
 }

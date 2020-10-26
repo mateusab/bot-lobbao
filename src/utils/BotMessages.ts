@@ -20,7 +20,7 @@ export const BotMessages = Object.freeze({
     openedLobbies: `:face_with_monocle: As lobbies abertas são:`,
     playerAlreadyInLobby: (lobbyName: string, playerId: string) => `:x: <@${playerId}> já está na lobby **${lobbyName}**.`,
     playerIsNotPartOfLobby: (lobbyName: string, playerName: string) => `${playerName} não faz parte da lobby **${lobbyName}**.`,
-    playerJoinnedLobby: (lobbyName: string, playerId: string, playersCount: number) => `@<${playerId}> entrou na lobby **${lobbyName}** (${playersCount} jogadores).`,
+    playerJoinnedLobby: (lobbyName: string, playerId: string, playersCount: number) => `<@${playerId}> entrou na lobby **${lobbyName}** (${playersCount} jogadores).`,
     playerLeftLobby: (lobbyName: string, playerName: string) => `:white_check_mark: ${playerName} saiu da lobby **${lobbyName}**.`,
     startLobbyDefaultMessage: `Digite **!start nome da lobby** para começar uma lobby.`,
     typeListToSeeSpecificLobby: `Digite **!list nome da lobby** pra ver uma específica. :stuck_out_tongue_winking_eye:`

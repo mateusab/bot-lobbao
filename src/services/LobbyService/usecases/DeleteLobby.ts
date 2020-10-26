@@ -6,8 +6,9 @@ import { Injectable } from "@nestjs/common";
 @Injectable()
 export class DeleteLobby {
     execute (lobbyName: string, message: Message, lobbies: Lobby[]) {
+        const playerId = message.author.id
         if (lobbyName === '') {
-            message.channel.send(BotMessages.deleteLobbyDefaultMessage)
+            message.channel.send(BotMessages.deleteLobbyDefaultMessage(playerId))
             return
         }
 

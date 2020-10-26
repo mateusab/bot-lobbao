@@ -9,18 +9,18 @@ const personalizedMessages = new PersonalizedMessages()
 @Injectable()
 export class JoinLobby {
     execute(lobbyName: string, message: Message, lobbies: Lobby[]) {
+        const playerId = message.author.id
         if (lobbyName === '') {
-            message.channel.send(BotMessages.joinLobbyDefaultMessage)
+            message.channel.send(BotMessages.joinLobbyDefaultMessage(playerId))
             return
         }
 
         const lobby = lobbies.find(lobby => lobby.name === lobbyName)
         const playerName = message.member.displayName
-
         const haveLevel = playerCanPlay(message)
 
         if (!haveLevel) {
-            message.channel.send(BotMessages.onlyPlayersWithLevelCanJoinLobbies(message.author.id))
+            message.channel.send(BotMessages.onlyPlayersWithLevelCanJoinLobbies(playerId))
             return
         }
 
@@ -33,17 +33,17 @@ export class JoinLobby {
             lobby.players = []
             lobby.count++
             lobby.players.push({ name: playerName, level: Number(message.member.roles.highest.name)})
-            message.channel.send(BotMessages.firstPlayerJoinnedLobby(lobbyName, playerName))
+            message.channel.send(BotMessages.firstPlayerJoinnedLobby(lobbyName, playerId))
             personalizedMessages.execute(message)
         } else {
             const alreadyInLobby = this.playerAlreadyInLobby(lobby, playerName)
 
             if (alreadyInLobby) {
-                message.channel.send(BotMessages.playerAlreadyInLobby(lobbyName, playerName))
+                message.channel.send(BotMessages.playerAlreadyInLobby(lobbyName, playerId))
             } else {
                 lobby.count++
                 lobby.players.push({ name: message.member.displayName, level: Number(message.member.roles.highest.name)})
-                message.channel.send(BotMessages.playerJoinnedLobby(lobbyName, playerName, lobby.count))
+                message.channel.send(BotMessages.playerJoinnedLobby(lobbyName, playerId, lobby.count))
                 personalizedMessages.execute(message)
             }
         }

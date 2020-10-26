@@ -19,7 +19,7 @@ export class StartLobby {
         if (!lobby) {
             message.channel.send(BotMessages.lobbyDoesNotExists(lobbyName))
         } else {
-            createMockLobby(lobby);
+            //createMockLobby(lobby);
             const numberOfPlayers = lobby.count
             const numberOfTeams = Math.floor(numberOfPlayers / 5)
             const playersToBeRemoved = numberOfPlayers % 5

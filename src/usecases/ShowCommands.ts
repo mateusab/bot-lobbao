@@ -15,6 +15,6 @@ export class ShowCommands {
 :no_entry_sign: **!delete nome da lobby** deleta uma lobby.
 :video_game: **!start nome da lobby** começa e separa os jogadores de uma lobby.
 
-Qualquer dúvida, já sabe né? https://www.google.com.br <:laugh_hard:770971049654878219>`)
+Qualquer dúvida, já sabe né? <https://www.google.com.br> <:laugh_hard:770971049654878219>`)
     }
 }

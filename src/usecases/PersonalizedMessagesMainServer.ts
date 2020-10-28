@@ -20,7 +20,7 @@ export class PersonalizedMessagesMainServer {
 
             // xilanta
             case '1224':
-                message.channel.send(`Bi-campeão mundial :trophy::trophy: do campeonato da firma. :pogchamp: Tem que respeitar o <@${playerId}>. :naoprecisa:`)
+                message.channel.send(`Bi-campeão mundial :trophy::trophy: do campeonato da firma. <:pogchamp:344970948316889101> Tem que respeitar o <@${playerId}>. <:naoprecisa:344970948186865665>`)
                 break;
 
             // rubens
@@ -30,7 +30,7 @@ export class PersonalizedMessagesMainServer {
 
             // ale
             case '0891':
-                message.channel.send(`Graças a Deus, <@${playerId}>! Me hospeda em um lugar decente? Essa máquina do xipsleNda tá uma BAGUNÇA! :haha:`)
+                message.channel.send(`Graças a Deus, <@${playerId}>! Me hospeda em um lugar decente? Essa máquina do xipsleNda tá uma BAGUNÇA! <:haha:344970948153442304>`)
                 break;
 
             // barreto
@@ -40,12 +40,12 @@ export class PersonalizedMessagesMainServer {
 
             // mascot
             case '0624':
-                message.channel.send(`Saudações oh grandioso level zero de Chernobyl! :raised_hands_tone1: Estava no seu aguardo, <@${playerId}>. :hmm2:`)
+                message.channel.send(`Saudações oh grandioso level zero de Chernobyl! :raised_hands_tone1: Estava no seu aguardo, <@${playerId}>. <:hmm2:344970948203773953>`)
                 break;
 
             // duda
             case '5891':
-                message.channel.send(`Acabou a reunião do condomínio! :haha: O <@${playerId}> chegou. :melhoras:`)
+                message.channel.send(`Acabou a reunião do condomínio! <:haha:344970948153442304> O <@${playerId}> chegou. <:melhoras:710159804097757214>`)
                 break;
 
             // miley
@@ -65,7 +65,7 @@ export class PersonalizedMessagesMainServer {
 
             // kenzo
             case '7258':
-                message.channel.send(`<@${playerId}>? Desde que horas as filas ranqueadas do LoL estão fora do ar? :haha:`)
+                message.channel.send(`<@${playerId}>? Desde que horas as filas ranqueadas do LoL estão fora do ar? <:haha:344970948153442304>`)
                 break;
 
             // kiq
@@ -75,12 +75,12 @@ export class PersonalizedMessagesMainServer {
 
             // lzwan
             case '8378':
-                message.channel.send(`Ô MANO, VIRA ESSA AWP PRA LÁ! EU TÔ NO SEU TIME, LZ! :doge: <@${playerId}>`)
+                message.channel.send(`Ô MANO, VIRA ESSA AWP PRA LÁ! EU TÔ NO SEU TIME, LZ! <:doge:344970948371283970> <@${playerId}>`)
                 break;
 
             // lzwan
             case '2974':
-                message.channel.send(`Ô MANO, VIRA ESSA AWP PRA LÁ! EU TÔ NO SEU TIME, LZ! :doge: <@${playerId}>`)
+                message.channel.send(`Ô MANO, VIRA ESSA AWP PRA LÁ! EU TÔ NO SEU TIME, LZ! <:doge:344970948371283970> <@${playerId}>`)
                 break;
 
             // coeLho
@@ -105,12 +105,12 @@ export class PersonalizedMessagesMainServer {
 
             // Mestre
             case '3637':
-                message.channel.send(`Na B, quem entrou, entrou. Quem não entrou não entra mais pq agora o mestrão tá lá de AUG. :doit2: <@${playerId}>`)
+                message.channel.send(`Na B, quem entrou, entrou. Quem não entrou não entra mais pq agora o mestrão tá lá de AUG. <:doit2:344970948497113090> <@${playerId}>`)
                 break;   
                 
             // miller
             case '8226':
-                message.channel.send(`Cara, se liga, <@${playerId}>, aproveitando que você tá aqui, deu um probleminha aqui no meu Ponto Mais... :laugh_hard:`)
+                message.channel.send(`Cara, se liga, <@${playerId}>, aproveitando que você tá aqui, deu um probleminha aqui no meu Ponto Mais... <:laugh_hard:770971049654878219>`)
                 break;   
 
             // mlopes
@@ -155,19 +155,19 @@ export class PersonalizedMessagesMainServer {
 
             // Cleo
             case '7823':
-                message.channel.send(`A <@${playerId}> chegouuuu! Seja muito bem-vinda :doit2:`)
+                message.channel.send(`A <@${playerId}> chegouuuu! Seja muito bem-vinda <:doit2:344970948497113090>`)
                 break;   
 
             // Flyzera
             case '5576':
-                message.channel.send(`<@${playerId}> sem clubismo, mas o melhor da firma chegou. Acabou a competitividade. :fly~1:`)
+                message.channel.send(`<@${playerId}> sem clubismo, mas o melhor da firma chegou. Acabou a competitividade. <:delicia:344970948123951105>`)
                 break;   
 
             default:
                 let randomMessages = [
-                    `Olha olha quem chegou, seja muito bem-vindo <@${playerId}>!`,
+                    `Olha olha quem chegou, seja muito bem-vindo <@${playerId}>! :heart_eyes:`,
                     `O pai tá ON LI NE :sunglasses: <@${playerId}>`,
-                    `O <@${playerId}> chegou. SEGURA A CABEÇA!`
+                    `O <@${playerId}> chegou. SEGURA A CABEÇA! <:delicia:344970948123951105>`
                 ]
                 const max = randomMessages.length - 1
                 const randomIndex = faker.random.number({ 'min': 0, 'max': max });

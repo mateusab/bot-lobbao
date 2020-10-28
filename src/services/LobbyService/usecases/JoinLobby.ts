@@ -40,7 +40,11 @@ export class JoinLobby {
             lobby.count++
             lobby.players.push({ name: playerName, level: playerLevel})
             message.channel.send(BotMessages.firstPlayerJoinnedLobby(lobbyName, playerId))
-            personalizedMessages.execute(message)
+            if (message.guild.name === 'Gamers Club HQ') {
+                personalizedMessagesGamersClubHQ.execute(message)
+            } else {
+                personalizedMessages.execute(message)
+            }
         } else {
             const alreadyInLobby = this.playerAlreadyInLobby(lobby, playerName)
 

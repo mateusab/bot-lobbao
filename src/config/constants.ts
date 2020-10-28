@@ -1,0 +1,1 @@
+export const CSGO_ROLE_MAIN_NAME = 'CSGO - Level'

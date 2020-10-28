@@ -1,12 +1,12 @@
+import { LevelService } from '@services/LevelService/LevelService';
 import { ShowCommands } from './usecases/ShowCommands';
 import { LobbyService } from '@lobby/LobbyService';
-import { RegisterLevel } from '@services/RegisterLevel';
 import { Injectable } from "@nestjs/common";
 import { Client, Message } from "discord.js"
 
 require('dotenv').config()
 
-const registerLevel = new RegisterLevel()
+const levelService = new LevelService()
 const lobbyService = new LobbyService()
 const showCommands = new ShowCommands()
 
@@ -26,7 +26,7 @@ const showCommands = new ShowCommands()
 
             switch(command) {
                 case "level":
-                    await registerLevel.execute(args[0], message)
+                    await levelService.register(args[0], message)
                     break;
                 
                 case "create":

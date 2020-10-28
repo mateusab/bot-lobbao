@@ -1,3 +1,5 @@
+import { Role } from "discord.js";
+
 export const BotMessages = Object.freeze({
     clearLobbyDefaultMessage: (playerId: string) => `<@${playerId}> Digite **!clear nome da lobby** para limpar os jogadores uma lobby.`,
     createLobbyDefaultMessage: (playerId: string) => `<@${playerId}> Digite **!create nome da lobby** para criar uma lobby`,
@@ -5,6 +7,8 @@ export const BotMessages = Object.freeze({
     firstPlayerJoinnedLobby: (lobbyName: string, playerId: string) => `:white_check_mark: <@${playerId}> foi o primeiro a entrar na lobby **${lobbyName}**.`,
     joinLobbyDefaultMessage: (playerId: string) => `<@${playerId}> Digite **!join nome da lobby** para entrar em uma lobby`,
     leaveLobbyDefaultMessage: (playerId: string) => `<@${playerId}> Digite **!leave nome da lobby** para sair de uma lobby`,
+    levelAssigned: (role: Role, playerId: string) => `${role} atribuido para o <@${playerId}>!`,
+    levelNotFound: (playerId: string) => `Level não encontrado! Por favor insira um level de 0 a 20! <@${playerId}>`,
     listLobby: (lobbyName: string, playersCount: number) => `Lobby: **${lobbyName}** - ${playersCount} jogadores`,
     listLobbyWithOnePlayer: (lobbyName: string, playersCount: number) => `Lobby: **${lobbyName}** - ${playersCount} jogador`,
     listTeam: (name: string, levelAvg: number) => `**${name}** - Média: ${levelAvg} :zap:`,
@@ -23,5 +27,6 @@ export const BotMessages = Object.freeze({
     playerJoinnedLobby: (lobbyName: string, playerId: string, playersCount: number) => `<@${playerId}> entrou na lobby **${lobbyName}** (${playersCount} jogadores).`,
     playerLeftLobby: (lobbyName: string, playerName: string) => `:white_check_mark: ${playerName} saiu da lobby **${lobbyName}**.`,
     startLobbyDefaultMessage: `Digite **!start nome da lobby** para começar uma lobby.`,
+    typeALevel: (playerId: string) => `<@${playerId}> digite um level para este comando. Exemplo: !level 15`,
     typeListToSeeSpecificLobby: `Digite **!list nome da lobby** pra ver uma específica. :stuck_out_tongue_winking_eye:`
 })

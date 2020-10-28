@@ -1,3 +1,5 @@
+import { CSGO_ROLE_MAIN_NAME } from '@config/constants';
+import { LevelEnum } from '@level/LevelEnum'
 import { PersonalizedMessages } from 'src/usecases/PersonalizedMessages';
 import { BotMessages } from '@utils/BotMessages';
 import { Lobby } from '@interfaces/LobbyInterface';
@@ -17,9 +19,9 @@ export class JoinLobby {
 
         const lobby = lobbies.find(lobby => lobby.name === lobbyName)
         const playerName = message.member.displayName
-        const haveLevel = playerCanPlay(message)
+        const levelRole = findLevelRole(message)
 
-        if (!haveLevel) {
+        if (!levelRole) {
             message.channel.send(BotMessages.onlyPlayersWithLevelCanJoinLobbies(playerId))
             return
         }
@@ -29,10 +31,12 @@ export class JoinLobby {
             return
         }
 
+        const playerLevel = LevelEnum[levelRole.name]
+
         if (lobby.count === 0) {
             lobby.players = []
             lobby.count++
-            lobby.players.push({ name: playerName, level: Number(message.member.roles.highest.name)})
+            lobby.players.push({ name: playerName, level: playerLevel})
             message.channel.send(BotMessages.firstPlayerJoinnedLobby(lobbyName, playerId))
             personalizedMessages.execute(message)
         } else {
@@ -42,7 +46,7 @@ export class JoinLobby {
                 message.channel.send(BotMessages.playerAlreadyInLobby(lobbyName, playerId))
             } else {
                 lobby.count++
-                lobby.players.push({ name: message.member.displayName, level: Number(message.member.roles.highest.name)})
+                lobby.players.push({ name: message.member.displayName, level: playerLevel})
                 message.channel.send(BotMessages.playerJoinnedLobby(lobbyName, playerId, lobby.count))
                 personalizedMessages.execute(message)
             }
@@ -54,13 +58,6 @@ export class JoinLobby {
     }
 }
 
-function playerCanPlay(message: Message) {
-    const levels = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20']
-    let booleans = []
-    message.member.roles.cache.forEach(role => {
-        const roleIsLevel = levels.includes(role.name)
-        booleans.push(roleIsLevel)
-    })
-
-    return booleans.some(boolean => boolean === true)
+function findLevelRole(message: Message) {
+    return message.member.roles.cache.find(role => role.name.includes(CSGO_ROLE_MAIN_NAME))
 }

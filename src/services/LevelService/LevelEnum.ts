@@ -1,0 +1,23 @@
+export enum LevelEnum {
+    'CSGO - Level 0',
+    'CSGO - Level 1',
+    'CSGO - Level 2',
+    'CSGO - Level 3',
+    'CSGO - Level 4',
+    'CSGO - Level 5',
+    'CSGO - Level 6',
+    'CSGO - Level 7',
+    'CSGO - Level 8',
+    'CSGO - Level 9',
+    'CSGO - Level 10',
+    'CSGO - Level 11',
+    'CSGO - Level 12',
+    'CSGO - Level 13',
+    'CSGO - Level 14',
+    'CSGO - Level 15',
+    'CSGO - Level 16',
+    'CSGO - Level 17',
+    'CSGO - Level 18',
+    'CSGO - Level 19',
+    'CSGO - Level 20'
+}

@@ -15,7 +15,7 @@ export class PersonalizedMessagesMainServer {
                 
             // viol
             case '2253':
-                message.channel.send(`Former mibr :powa: :flag_br: Cuidado, ele é perigoso ele. :scream: AK TROVÃO :zap: :sunglasses: <@${playerId}>`)
+                message.channel.send(`Former mibr <:powa:344970947830349825> :flag_br: Cuidado, ele é perigoso ele. :scream: AK TROVÃO :zap: :sunglasses: <@${playerId}>`)
                 break;
 
             // xilanta

@@ -44,6 +44,8 @@ Seu bot vai ter um token onde você deverá colocar em um arquivo .env atribuido
 
 <b>!delete nome da lobby</b> deleta uma lobby.
 
+<b>!start nome da lobby</b> inicia uma lobby e sorteia os times.
+
 ## Desenvolvido por
 
 - [@xipslenda](https://twitter.com/xipslenda)

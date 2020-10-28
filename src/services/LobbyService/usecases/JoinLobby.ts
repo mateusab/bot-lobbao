@@ -1,3 +1,4 @@
+import { PersonalizedMessagesMainServer } from 'src/usecases/PersonalizedMessagesMainServer';
 import { CSGO_ROLE_MAIN_NAME } from '@config/constants';
 import { LevelEnum } from '@level/LevelEnum'
 import { PersonalizedMessages } from 'src/usecases/PersonalizedMessages';
@@ -7,6 +8,7 @@ import { Injectable } from '@nestjs/common';
 import { Message } from 'discord.js';
 
 const personalizedMessages = new PersonalizedMessages()
+const personalizedMessagesGamersClubHQ = new PersonalizedMessagesMainServer()
 
 @Injectable()
 export class JoinLobby {
@@ -48,7 +50,12 @@ export class JoinLobby {
                 lobby.count++
                 lobby.players.push({ name: message.member.displayName, level: playerLevel})
                 message.channel.send(BotMessages.playerJoinnedLobby(lobbyName, playerId, lobby.count))
-                personalizedMessages.execute(message)
+
+                if (message.guild.name === 'Gamers Club HQ') {
+                    personalizedMessagesGamersClubHQ.execute(message)
+                } else {
+                    personalizedMessages.execute(message)
+                }
             }
         }
     }

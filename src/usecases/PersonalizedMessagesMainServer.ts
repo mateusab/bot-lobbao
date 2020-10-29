@@ -44,7 +44,7 @@ export class PersonalizedMessagesMainServer {
                 break;
 
             // duda
-            case '5891':
+            case '5819':
                 message.channel.send(`Acabou a reunião do condomínio! <:haha:344970948153442304> O <@${playerId}> chegou. <:melhoras:710159804097757214>`)
                 break;
 

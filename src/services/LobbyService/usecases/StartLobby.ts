@@ -94,12 +94,13 @@ function createTeams(numberOfTeams: number, sortedLobby: Player[], teams: Team[]
     initializeTeams(numberOfTeams, teams);
 
     let temp = sortedLobby
-    console.log('lobby antes:', temp)
     //distribui os cabeças
     for (var i = 0; i < numberOfTeams; i++) {
-        teams[i].players.push({ name: temp[0].name, level: temp[0].level})
-        teams[i].levelAverage = temp[i].level
-        temp.splice(0, 1)
+        const max = numberOfTeams-1-i
+        const randomIndex = faker.random.number({ 'min': 0, 'max': max });
+        teams[i].players.push({ name: temp[randomIndex].name, level: temp[randomIndex].level})
+        teams[i].levelAverage = temp[randomIndex].level
+        temp.splice(randomIndex, 1)
     }
 
     // ordena do lvl mais baixo para o mais alto
@@ -147,22 +148,22 @@ function removePlayersFromLobby(playersToBeRemoved: number, numberOfPlayers: num
 
 function createMockLobby(lobby: Lobby) {
     lobby.players = []
-    lobby.count = 6
+    lobby.count = 15
     lobby.players.push({ name: 'miley', level: 8 });
     lobby.players.push({ name: 'BigJhoW', level: 7 });
-    lobby.players.push({ name: 'coeLho', level: 0 });
+    lobby.players.push({ name: 'coeLho', level: 2 });
     lobby.players.push({ name: 'pejota', level: 7 });
     lobby.players.push({ name: 'xips', level: 20 });
     lobby.players.push({ name: 'Mateusser', level: 5 });
-//    lobby.players.push({ name: 'barreto', level: 12 });
-//    lobby.players.push({ name: 'viol', level: 20 });
-//    lobby.players.push({ name: 'Rubão', level: 2 });
-//    lobby.players.push({ name: 'sAvilek', level: 8 });
-//    lobby.players.push({ name: 'Xilanta', level: 8 });
-//    lobby.players.push({ name: 'kin', level: 12 });
-//    lobby.players.push({ name: 'mlopes', level: 3 });
-//    lobby.players.push({ name: 'VyK7oR', level: 12 });
-//    lobby.players.push({ name: 'stots', level: 10 });
+    lobby.players.push({ name: 'barreto', level: 12 });
+    lobby.players.push({ name: 'viol', level: 20 });
+    lobby.players.push({ name: 'Rubão', level: 4 });
+    lobby.players.push({ name: 'sAvilek', level: 8 });
+    lobby.players.push({ name: 'Xilanta', level: 8 });
+    lobby.players.push({ name: 'kin', level: 12 });
+    lobby.players.push({ name: 'mlopes', level: 3 });
+    lobby.players.push({ name: 'VyK7oR', level: 14 });
+    lobby.players.push({ name: 'stots', level: 13 });
 //    lobby.players.push({ name: 'lzwan', level: 4 });
 //    lobby.players.push({ name: 'Matob', level: 14 });
 //    lobby.players.push({ name: 'Alê', level: 5 });

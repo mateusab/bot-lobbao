@@ -41,7 +41,7 @@ export class StartLobby {
                 let tempTeams: Team[] = teams
 
                 if (numberOfTeams > 2) {
-                    message.channel.send(`Sugestão de confrontos :sprayBom:`)
+                    message.channel.send(`Sugestão de confrontos <:sprayBom:344231411525353472>`)
                     tempTeams = tempTeams.sort((a, b) => a.levelAverage - b.levelAverage)
                     if (numberOfTeams % 2 === 0) {
                         for (var i = 0; i < (numberOfTeams/2); i++) {

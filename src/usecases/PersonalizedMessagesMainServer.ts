@@ -140,7 +140,7 @@ export class PersonalizedMessagesMainServer {
 
             // kin
             case '7805':
-                message.channel.send(`Olha o <@${playerId}> aí minha gente!`)
+                message.channel.send(`Olha o <@${playerId}> aí minha gente!!`)
                 break;   
 
             // gersin

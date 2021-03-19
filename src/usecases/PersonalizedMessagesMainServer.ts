@@ -163,11 +163,18 @@ export class PersonalizedMessagesMainServer {
                 message.channel.send(`<@${playerId}> sem clubismo, mas o melhor da firma chegou. Acabou a competitividade. <:delicia:344970948123951105>`)
                 break;   
 
+            // Puglisi
+            case '0278':
+                message.channel.send(`A MÃE TÁ ONLINE! Rainha do global e dos dados. Pode entrar <@${playerId}>`)
+                break;   
+
+
+
             default:
                 let randomMessages = [
-                    `Olha olha quem chegou, seja muito bem-vindo <@${playerId}>! :heart_eyes:`,
-                    `O pai tá ON LI NE :sunglasses: <@${playerId}>`,
-                    `O <@${playerId}> chegou. SEGURA A CABEÇA! <:delicia:344970948123951105>`
+                    `Olha olha quem chegou, seja muito bem-vindx <@${playerId}>! :heart_eyes:`,
+                    `<@${playerId}> chegou. SEGURA A CABEÇA! <:delicia:344970948123951105>`,
+                    `Ora ora... <@${playerId}> ... Nos encontramos novamente.`
                 ]
                 const max = randomMessages.length - 1
                 const randomIndex = faker.random.number({ 'min': 0, 'max': max });

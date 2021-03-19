@@ -10,7 +10,7 @@ export class PersonalizedMessagesMainServer {
         switch (message.author.discriminator) {
             // xips
             case '7239':
-                message.channel.send(`Silêncio :shushing_face: o editor do SK THE DREAM está na lobby. :sunglasses: <@${playerId}>`)
+                message.channel.send(`Silêncio :shushing_face: o editor do SK THE DREAM está na lobby! :sunglasses: <@${playerId}>`)
                 break;
                 
             // viol
@@ -174,7 +174,11 @@ export class PersonalizedMessagesMainServer {
                 let randomMessages = [
                     `Olha olha quem chegou, seja muito bem-vindx <@${playerId}>! :heart_eyes:`,
                     `<@${playerId}> chegou. SEGURA A CABEÇA! <:delicia:344970948123951105>`,
+<<<<<<< HEAD
                     `Ora ora... <@${playerId}> ... Nos encontramos novamente.`
+=======
+                    `Ora ora... <@${playerId}> ... Nos encontramos novamente!`
+>>>>>>> update personalized messages
                 ]
                 const max = randomMessages.length - 1
                 const randomIndex = faker.random.number({ 'min': 0, 'max': max });
